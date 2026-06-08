@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 7 Months, My Love! ❤️</title>
+    
+    <!-- SEO and Tab styling -->
+    <meta name="description" content="A special celebration of our 7 months together. I love you!">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Canvas for Floating Hearts & Twinkling Stars -->
+    <canvas id="stars-hearts-canvas"></canvas>
+
+    <div class="app-container">
+        <!-- STEP 1: The Romantic Envelope -->
+        <div id="welcome-step" class="card-container fade-in">
+            <div class="envelope-card">
+                <div class="heart-pulse-icon">💝</div>
+                <h1 class="welcome-title">To My Favorite Person</h1>
+                <p class="welcome-subtitle">I made a little something for you to celebrate our milestone today...</p>
+                <button id="open-btn" class="btn-primary">Open My Heart</button>
+            </div>
+        </div>
+
+        <!-- STEP 2: The Main Celebration Space (Initially Hidden) -->
+        <div id="main-step" class="card-container hidden">
+            <div class="celebration-layout">
+                
+                <!-- Left Side: Romantic Art Card -->
+                <div class="art-card-wrapper glass-panel">
+                    <div class="image-container">
+                        <img id="couple-art" src="assets/romantic_couple.png" alt="Us under the stars">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="art-caption">
+                        <p class="sparkle-text">✨ 7 Months of Us ✨</p>
+                    </div>
+                </div>
+
+                <!-- Right Side: Content and Interaction -->
+                <div class="content-panel glass-panel">
+                    <h2 class="anniversary-title">Happy 7 Months, My Love!</h2>
+                    <p class="love-message">
+                        Seven months ago, you walked into my life and turned it into a beautiful adventure. Every day with you is filled with warmth, laughter, and a love that grows stronger with every passing moment. You are my favorite person, my safest place, and my happiest thought. Happy Anniversary. I love you to the stars and back! ❤️
+                    </p>
+
+                    <!-- Heart Runner Game Section (Dino-style) -->
+                    <div class="game-section">
+                        <h3 class="section-title">Heart Runner Game 🎮</h3>
+                        <div class="game-container glass-panel">
+                            <canvas id="game-canvas"></canvas>
+                            
+                            <!-- Start Game Overlay -->
+                            <div id="game-overlay" class="game-overlay">
+                                <span class="game-play-emoji">💖</span>
+                                <p class="game-instruction">Help the heart jump over the clouds!<br>Press <strong>Spacebar</strong> or <strong>Tap Screen</strong> to jump.</p>
+                                <button id="start-game-btn" class="btn-secondary">Start Game</button>
+                            </div>
+                            
+                            <!-- Game Over Overlay -->
+                            <div id="game-over-overlay" class="game-overlay hidden">
+                                <span class="game-over-emoji">🩹</span>
+                                <p class="game-over-text">Oops! You bumped into a cloud.</p>
+                                <p class="game-score-text">Hearts Collected: <span id="game-score-val">0</span></p>
+                                <button id="restart-game-btn" class="btn-secondary">Play Again</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Love Coupons -->
+                    <div class="coupons-section">
+                        <h3 class="section-title">Redeemable Love Coupons</h3>
+                        <div class="coupons-grid">
+                            <!-- Coupon 1 -->
+                            <div class="coupon-card" data-name="One Giant, Cozy Hug">
+                                <div class="coupon-inner">
+                                    <div class="coupon-front">
+                                        <div class="coupon-emoji">🤗</div>
+                                        <div class="coupon-label">Warm Hug</div>
+                                    </div>
+                                    <div class="coupon-back">
+                                        <p>Redeemable anytime you need comfort.</p>
+                                        <button class="redeem-btn">Redeem</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Coupon 2 -->
+                            <div class="coupon-card" data-name="A Dessert Date">
+                                <div class="coupon-inner">
+                                    <div class="coupon-front">
+                                        <div class="coupon-emoji">🍦</div>
+                                        <div class="coupon-label">Dessert Date</div>
+                                    </div>
+                                    <div class="coupon-back">
+                                        <p>Redeemable for ice cream or sweet treats on me!</p>
+                                        <button class="redeem-btn">Redeem</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Coupon 3 -->
+                            <div class="coupon-card" data-name="A Cozy Movie Night">
+                                <div class="coupon-inner">
+                                    <div class="coupon-front">
+                                        <div class="coupon-emoji">🍿</div>
+                                        <div class="coupon-label">Movie Night</div>
+                                    </div>
+                                    <div class="coupon-back">
+                                        <p>Redeemable for a cozy movie night with your choice of films.</p>
+                                        <button class="redeem-btn">Redeem</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Coupon Redemption (No Codes) -->
+    <div id="redeem-modal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <span class="modal-close">&times;</span>
+            <div class="modal-heart">💖</div>
+            <h3 class="modal-title">Coupon Claimed!</h3>
+            <p id="modal-message">Your coupon has been successfully claimed.</p>
+            <button id="modal-close-btn" class="btn-primary">Yay! 😊</button>
+        </div>
+    </div>
+
+    <!-- Background Audio -->
+    <audio id="bg-music" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-soft-emotional-lofi-piano-1652.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-toggle-btn hidden">🎵</button>
+
+    <!-- Custom Javascript -->
+    <script src="script.js"></script>
+</body>
+</html>
