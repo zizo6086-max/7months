@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let score = 0;
     let obstacleTimer = 0;
     let collectibleTimer = 0;
-    let gameSpeed = 3;
+    let gameSpeed = 2;
     let animId = null;
 
     let obstacles = [];
@@ -195,8 +195,8 @@ document.addEventListener('DOMContentLoaded', () => {
         width: 18,
         height: 18,
         vy: 0,
-        gravity: 0.5,
-        jumpForce: -8.5,
+        gravity: 0.4,
+        jumpForce: -9.5,
         isJumping: false,
         
         jump() {
@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
         score = 0;
         obstacles = [];
         collectibles = [];
-        gameSpeed = 3.2;
+        gameSpeed = 1.8;
         obstacleTimer = 0;
         collectibleTimer = 0;
         player.y = groundY - player.height;
@@ -344,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
         player.draw();
 
         // Increment Speed very slowly over time
-        gameSpeed += 0.0005;
+        gameSpeed += 0.00025;
 
         // Spawn Obstacles (clouds)
         obstacleTimer++;
@@ -356,7 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Spawn Collectibles (hearts)
         collectibleTimer++;
-        if (collectibleTimer > 110 + Math.random() * 80) {
+        if (collectibleTimer > 70 + Math.random() * 50) {
             collectibles.push(new Collectible());
             collectibleTimer = 0;
         }
